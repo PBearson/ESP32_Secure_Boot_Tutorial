@@ -1,1 +1,1 @@
-# ESP32_Secure_Boot_Tutorial
+# ESP32 Secure Boot Tutorial

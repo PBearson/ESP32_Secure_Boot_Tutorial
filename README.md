@@ -1,10 +1,27 @@
 # ESP32 Secure Boot Tutorial
 
+This project demonstrates how to enable secure boot (Reflashable Mode) on the ESP32. We will show the procedure for enabling secure boot for the current application, and we will verify that secure boot is enabled. Finally, we will show how the user can upload a new firmware as long as they have the correct signing key, and we will show how the user can update the bootloader due to the Reflashable Mode setting.
+
 ## Prerequisites
 
-TODO for this project, you need
+For this project, you need:
 
-TODO disable flash encryption if enabled, since we need to perform a plaintext upload.
+* An ESP32 development board, such as Hiletgo ESP-WROOM-32.
+* A Linux Virtual Machine with ESP-IDF (version 4) installed.
+
+You are encouraged to use the following Ubuntu VM: https://www.dropbox.com/s/0g7w8qduzj2rb1k/UbuntuIoT.ova?dl=0
+
+Follow these instructions to install ESP-IDF version 4.4: https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#get-started-get-prerequisites
+
+After installing ESP-IDF, download this repository into your VM:
+
+```
+git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
+```
+
+### Disable Flash Encryption
+
+With flash encryption enabled, you cannot upload plaintext firmware images to the ESP32, and this procedure will fail. If you have enabled Flash Encryption in Development Mode, you should first disable it by following [these instructions](https://github.com/PBearson/ESP32_Flash_Encryption_Tutorial#disable-flash-encryption). Flash Encryption in Release Mode cannot be disabled.
 
 ## Enable Secure Boot
 

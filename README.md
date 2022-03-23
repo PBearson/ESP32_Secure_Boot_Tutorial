@@ -93,11 +93,37 @@ idf.py build flash monitor
 
 ```
 
-You should see the bootloader and 
+You should see the bootloader and application proceed as normal. In fact, if you closely inspect the bootloader output, you will see that secure boot has been enabled.
 
 ### Verify Secure Boot is Working
 
-TODO try to change the application and re-upload it. 
+Now we will prove that secure boot is working as intended. We are going to modify the application and show that the secure boot mechanism prevents the modified application from running. 
+
+Open the application code (_main/station_example_main.c_) in an editor such as VSCode. Change the code in any way you like. In my case, I have changed the TAG variable from "wifi station" to "wifi station BRYAN":
+
+![image](https://user-images.githubusercontent.com/11084018/159783086-c50e6ea0-d61a-4153-bfcf-aa9550027901.png)
+
+Save your changes and open the configuration menu:
+
+```
+idf.py menuconfig
+```
+
+Navigate to `Security Features` and disable the option `Enable hardware Secure Boot in bootloader`. This will temporarily disable secure boot.
+
+Now build the application:
+
+```
+idf.py build
+```
+
+Since we disabled secure boot, the bootloader has also been modified, and it will automatically be uploaded using the typical command (`idf.py flash`). For now, we will only upload the modified application, but not the bootloader:
+
+![image](https://user-images.githubusercontent.com/11084018/159786416-1dca80bc-0dd9-4bac-b3a1-b220cd9623e2.png)
+
+```
+esptool.py write_flash 0x20000 build/wifi_station.bin
+```
 
 ## Upload a New Application
 

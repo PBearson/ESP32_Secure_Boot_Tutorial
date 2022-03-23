@@ -48,48 +48,52 @@ Open a terminal, and navigate to the root directory of this project. Open the pr
 idf.py menuconfig
 ```
 
-Using the up/down arrow keys, navigate to the `Security Features` menu, and press _enter_ to go into the menu. Select the option `Enable hardware Secure Boot in bootloader`. The secure bootloader mode will be set to One-time flash. We need to change it to Reflashable mode. Select the option `Secure bootloder mode (One-time flash)` and change it to `Reflashable`.
+Using the up/down arrow keys, navigate to the `Example Configuration` menu, press _enter_ to enter into the menu, then press _enter_ to begin typing your WiFi SSID. When you are done, do the same for the WiFi Password.
 
-Press _ESC_ and change to the `Partition Table` menu. We need to change the offset of the partition table because the bootloader (which is stored in flash _before_ the partition table) will grow in size. Change the offset of the partition table from 0x8000 to 0x10000.
+Press _ESC_ and navigate to the `Security Features` menu, and press _enter_ to go into the menu. Select the option `Enable hardware Secure Boot in bootloader`. The secure bootloader mode will be set to One-time flash. We need to change it to Reflashable mode. Select the option `Secure bootloder mode (One-time flash)` and change it to `Reflashable`.
+
+Press _ESC_ again and change to the `Partition Table` menu. We need to change the offset of the partition table because the bootloader (which is stored in flash _before_ the partition table) will grow in size. Change the offset of the partition table from 0x8000 to 0x10000.
 
 After you are done, press _ESC_ again until you are prompted to save. Press _Y_ to save and exit.
 
-Build bootloader:
-
-```
-idf.py bootloader
-```
-
-Generate signing key:
+Before we build the application, first we need to generate the secure boot signing key. The build system will append the public key component of the signing key to the software bootloader, and it will calculate the secure bootloader key. To generate the secure boot signing key, run this command:
 
 ```
 espsecure.py generate_signing_key secure_boot_signing_key.pem
 ```
 
-The secure boot signing key is needed every time you want to upload a new firmware. Make sure not to lose it.
+**CAUTION: The secure boot signing key is needed every time you want to upload a new firmware. Make sure not to lose it.**
 
-Burn secure boot key to eFuse:
+Now build the bootloader:
+
+```
+idf.py bootloader
+```
+
+The secure bootloader key is stored in the following path: _build/bootloader/secure-bootloader-key-256.bin_. Now we need to burn this key into the BLOCK2 eFuse:
 
 ```
 espefuse.py burn_key secure_boot_v1 build/bootloader/secure-bootloader-key-256.bin
 ```
 
+Follow the instructions and type `BURN` to finish setting the eFuse.
+
 **NOTE: If using the Hiletgo ESP-WROOM-32 development board, you may need to hold down the IO0 button on the ESP32 when the build system tries to connect to the ESP32's serial port. If you do not hold down the IO0 button during this step, the build system may fail to detect the serial port.**
 
-You do not need to save the secure bootloader key. In Secure Boot Reflashable mode, the build system derives the secure bootloader key from the secure boot signing key. Therefore, you only need to save the secure boot signing key.
-
-Upload bootloader to ESP32:
+Now upload the bootloader to the ESP32:
 
 ```
 esptool.py write_flash 0x1000 build/bootloader/bootloader.bin
 ```
 
-Build and flash the rest of the application:
+Finally, build and flash the rest of the application:
 
 ```
 idf.py build flash monitor
 
 ```
+
+You should see the bootloader and 
 
 ### Verify Secure Boot is Working
 

@@ -37,7 +37,8 @@ With flash encryption enabled, you cannot upload plaintext firmware images to th
 
 Now we are going to enable secure boot in Reflashable Mode. The ESP32 supports two kinds of secure boot modes: One-time Flash, and Reflashable:
 
-* In **One-time Flash Mode**, the secure bootloader key is generated internally by the chip and stored in the eFuse, where it cannot be accessed by software. The ROM bootloader uses the secure bootloader key to verify the integrity of the software bootloader. Since the key is inaccessible to the user, the software bootloader cannot be changed after secure boot is enabled
+* In **One-time Flash Mode**, the secure bootloader key is generated internally by the chip and stored in the eFuse, where it cannot be accessed by software. Since the key is inaccessible to the user, the software bootloader cannot be changed after secure boot is enabled.
+* In **Reflashable Mode**, the build system generates the secure bootloader key using the SHA-256 digest of the secure boot signing key. This secure bootloader key is then stored in the eFuse. Assuming the user can access the secure boot signing key, the secure bootloader key can always be re-generated, and the software bootloader can be changed after secure boot is enabled.
 
 ### Configure the WiFi Application
 

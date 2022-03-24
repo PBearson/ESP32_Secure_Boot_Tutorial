@@ -171,7 +171,7 @@ Finally, build and upload the rest of the application as normal:
 idf.py build flash monitor
 ```
 
-You should see the bootloader and application load successfully, and the application contains the changes we made:
+You should see the bootloader and application load successfully, and the application should contain the changes we made:
 
 ![image](https://user-images.githubusercontent.com/11084018/160005397-17029f71-819f-4cfe-8b28-9fcba554d4b2.png)
 

@@ -137,11 +137,21 @@ You should see that the ROM bootloader successfully loads the software bootloade
 
 ![image](https://user-images.githubusercontent.com/11084018/159786794-e3abb679-7d38-422c-864f-94f63ac9b562.png)
 
-Now use the regular upload command to upload all binary images, including 
+Now upload the bootloader image, and observe how the ROM bootloader now fails to load the software bootloader:
+
+```
+esptool.py write_flash 0x1000 build/bootloader/bootloader.bin
+```
+
+You should see output similar to the following:
+
+![image](https://user-images.githubusercontent.com/11084018/160002426-02cae2dd-4089-4542-8447-0a4438fbb758.png)
 
 ## Upload a New Application
 
-TODO modify application.
+Now we will see how the user can update the application and bootloader. Keep in mind that the bootloader can only be updated in Reflashable Mode.
+
+Open the configuration menu again, and re-enable the option `Enable hardware Secure Boot in bootloader`. Make sure to also set the option `Secure bootloader mode` to `Reflashable`. Leave and save your changes.
 
 ```
 idf.py build flash monitor

@@ -109,7 +109,7 @@ Save your changes and open the configuration menu:
 idf.py menuconfig
 ```
 
-Navigate to `Security Features` and disable the option `Enable hardware Secure Boot in bootloader`. This will temporarily disable secure boot.
+Navigate to `Security Features` and disable the option `Enable hardware Secure Boot in bootloader`. This will temporarily disable secure boot. After disabling the option, leave the configuration menu and save the changes.
 
 Now build the application:
 
@@ -117,13 +117,27 @@ Now build the application:
 idf.py build
 ```
 
-Since we disabled secure boot, the bootloader has also been modified, and it will automatically be uploaded using the typical command (`idf.py flash`). For now, we will only upload the modified application, but not the bootloader:
+Since we disabled secure boot, the bootloader has also been modified, and it will automatically be uploaded using the typical command (`idf.py flash`). For now, we will only upload the modified application, but not the bootloader. To upload the application only, we need to know what address the application is uploaded to the flash (this address is affected by the partition table offset, which we modified earlier). Luckily, the output from the build command tells us which address the application will be flashed to, as shown in the following screenshot:
 
 ![image](https://user-images.githubusercontent.com/11084018/159786416-1dca80bc-0dd9-4bac-b3a1-b220cd9623e2.png)
+
+Assuming your flash address is also 0x20000, you can use the following command to upload the application to the ESP32:
 
 ```
 esptool.py write_flash 0x20000 build/wifi_station.bin
 ```
+
+Now open the serial monitor:
+
+```
+idf.py monitor
+```
+
+You should see that the ROM bootloader successfully loads the software bootloader, but the software bootloader fails to load the application because it cannot verify the application's signature:
+
+![image](https://user-images.githubusercontent.com/11084018/159786794-e3abb679-7d38-422c-864f-94f63ac9b562.png)
+
+Now use the regular upload command to upload all binary images, including 
 
 ## Upload a New Application
 

@@ -147,22 +147,26 @@ You should see output similar to the following:
 
 ![image](https://user-images.githubusercontent.com/11084018/160002426-02cae2dd-4089-4542-8447-0a4438fbb758.png)
 
-## Upload a New Application
+## Update the Application After Secure Boot is Enabled
 
 Now we will see how the user can update the application and bootloader. Keep in mind that the bootloader can only be updated in Reflashable Mode.
 
 Open the configuration menu again, and re-enable the option `Enable hardware Secure Boot in bootloader`. Make sure to also set the option `Secure bootloader mode` to `Reflashable`. Leave and save your changes.
 
+Now build the bootloader:
+
 ```
-idf.py build flash monitor
+idf.py bootloader
 ```
 
-## Upload a New Bootloader
-
-TODO modify bootloader.
+The bootloader is prefixed with the SHA-512 digest that the ROM uses to verify the bootloader. The build system can generate this digest since we supply the secure boot signing key (which is used to derive the secure bootloader key). Recall that the digest should be stored at offset 0x0 in the flash. Therefore, we now need to upload the bootlaoder to address 0x0:
 
 ```
 esptool.py write_flash 0x0 build/bootloader/bootloader-reflash-digest.bin
 ```
 
-This bootloader image contains a SHA-512 digest within the first 0x1000 bytes. 
+Finally, build and upload the rest of the application as normal:
+
+```
+idf.py build flash monitor
+```

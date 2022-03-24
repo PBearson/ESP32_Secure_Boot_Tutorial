@@ -171,10 +171,18 @@ Finally, build and upload the rest of the application as normal:
 idf.py build flash monitor
 ```
 
-You should see the bootloader and application load successfully, and the application should contain the changes we made:
+You should see the bootloader and application load successfully, and the application should contain the changes we made: 
 
 ![image](https://user-images.githubusercontent.com/11084018/160005397-17029f71-819f-4cfe-8b28-9fcba554d4b2.png)
 
 ## Enable Flash Encryption After Secure Boot Is Enabled
 
-TODO
+If flash encryption has never been enabled on your ESP32, then follow [this procedure](https://github.com/PBearson/ESP32_Flash_Encryption_Tutorial#enable-flash-encryption) to enable it. Since the partition table offset has already been set to 0x10000, there is no need to modify it further. Since secure boot is enabled, make sure to build and flash the bootloader separately, as described previously.
+
+If flash encryption has been enabled, and you temporarily disabled it before you enabled secure boot, then the procedure is mostly the same. The only difference is that after uploading the bootloader and application, you must set the next bit in the FLASH_CRYPT_CNT eFuse to re-enable flash encryption:
+
+```
+espefuse.py burn_efuse FLASH_CRYPT_CNT
+```
+
+Follow the instructions and type `BURN` to finish setting the eFuse.

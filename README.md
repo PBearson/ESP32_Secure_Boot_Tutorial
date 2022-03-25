@@ -29,9 +29,12 @@ After installing ESP-IDF, download this repository into your VM:
 git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
 ```
 
-### Disable Flash Encryption
+### A Note about Flash Encryption
 
-With flash encryption enabled, you cannot upload plaintext firmware images to the ESP32, and this procedure will fail. If you have enabled Flash Encryption in Development Mode, you should first disable it by following [these instructions](https://github.com/PBearson/ESP32_Flash_Encryption_Tutorial#disable-flash-encryption). Flash Encryption in Release Mode cannot be disabled.
+If you have previously enabled flash encryption (Development Mode) on this ESP32, then you can still follow this procedure without making too many changes. The only differences are the following:
+
+* Replace `idf.py flash` with `idf.py encrypted-flash`
+* Any command starting with `esptool.py write_flash` must contain the `--encrypt` argument; for example: `esptool.py write_flash --encrypt 0x1000 build/bootloader/bootloader.bin`
 
 ## Enable Secure Boot
 
@@ -178,11 +181,3 @@ You should see the bootloader and application load successfully, and the applica
 ## Enable Flash Encryption After Secure Boot Is Enabled
 
 If flash encryption has never been enabled on your ESP32, then follow [this procedure](https://github.com/PBearson/ESP32_Flash_Encryption_Tutorial#enable-flash-encryption) to enable it. Since the partition table offset has already been set to 0x10000, there is no need to modify it further. Since secure boot is enabled, make sure to build and flash the bootloader separately, as described previously.
-
-If flash encryption has been enabled, and you temporarily disabled it before you enabled secure boot, then the procedure is mostly the same. The only difference is that after uploading the bootloader and application, you must set the next bit in the FLASH_CRYPT_CNT eFuse to re-enable flash encryption:
-
-```
-espefuse.py burn_efuse FLASH_CRYPT_CNT
-```
-
-Follow the instructions and type `BURN` to finish setting the eFuse.

@@ -31,7 +31,7 @@ git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
 
 ### A Note about Flash Encryption
 
-If you have previously enabled flash encryption (Development Mode) on this ESP32, then you can still follow this procedure without making too many changes. The only differences are the following:
+If you have previously enabled flash encryption (Development Mode) on this ESP32, then you can still follow this tutorial without making too many changes. The only differences are the following:
 
 * Replace `idf.py flash` with `idf.py encrypted-flash`
 * Any command starting with `esptool.py write_flash` must contain the `--encrypt` argument; for example: `esptool.py write_flash --encrypt 0x1000 build/bootloader/bootloader.bin`

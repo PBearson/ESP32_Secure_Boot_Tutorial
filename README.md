@@ -39,6 +39,11 @@ Load the project into VS Code via *File* -> *Open Folder ...*
 
 Within VS Code, open a *Terminal* from its menu
 
+Within the terminal, use the following command to set up the environment variables
+```
+. $HOME/esp/esp-idf/export.sh
+```
+
 ### WiFi
 
 Open a terminal, and navigate to the root directory of this project. Open the project configuration menu:

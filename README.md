@@ -86,8 +86,10 @@ Now upload the bootloader to the ESP32:
 ```
 esptool.py write_flash 0x1000 build/bootloader/bootloader.bin
 ```
-Note: When secure boot is enabled, the bootloader is not uploaded automatically when we run "idf.py build flash monitor". We have to upload it manually using the "write_flash" command.
-
+Note: 
+- When secure boot is enabled, the bootloader is not uploaded automatically when we run "idf.py build flash monitor". We have to upload it manually using the "write_flash" command.
+- The first time the device runs with secure boot enabled, the device will generate the digest for us. So we do not have to supply the digest this first time.
+- 
 Finally, build and flash the rest of the application:
 
 ```

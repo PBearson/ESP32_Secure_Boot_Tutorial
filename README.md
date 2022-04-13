@@ -75,7 +75,7 @@ The build system will
 
 ## 5. Burn secure bootloader key into eFuse
 
-The secure bootloader key is also generated and stored in the following path: _build/bootloader/secure-bootloader-key-256.bin_. Now we need to burn this key into the BLOCK2 eFuse:
+The secure bootloader key is stored in the following path: _build/bootloader/secure-bootloader-key-256.bin_. Now we need to burn this key into the BLOCK2 eFuse:
 
 ```
 espefuse.py burn_key secure_boot_v1 build/bootloader/secure-bootloader-key-256.bin

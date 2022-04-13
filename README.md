@@ -86,6 +86,7 @@ Now upload the bootloader to the ESP32:
 ```
 esptool.py write_flash 0x1000 build/bootloader/bootloader.bin
 ```
+Note: When secure boot is enabled, the bootloader is not uploaded automatically when we run "idf.py build flash monitor". We have to upload it manually using the "write_flash" command.
 
 Finally, build and flash the rest of the application:
 
@@ -159,11 +160,12 @@ Now build the bootloader:
 idf.py bootloader
 ```
 
-The bootloader is prefixed with the SHA-512 digest that the ROM uses to verify the bootloader. The build system can generate this digest since we supply the secure boot signing key (which is used to derive the secure bootloader key). Recall that the digest should be stored at offset 0x0 in the flash. Therefore, we now need to upload the bootloader to address 0x0:
+The bootloader is prefixed with the SHA-512 digest that the ROM uses to verify the bootloader. The build system can generate this digest since we supply the secure boot signing key (which is used to derive the secure bootloader key). Recall that the digest should be stored at offset 0x0 in the flash. Therefore, we now need to upload the bootloader, which is prefixed with the bootloader digest, to address 0x0.
 
 ```
 esptool.py write_flash 0x0 build/bootloader/bootloader-reflash-digest.bin
 ```
+The write_flash command is writing both the bootloader and the bootloader digest to the flash (they are part of the same binary).
 
 Finally, build and upload the rest of the application as normal:
 

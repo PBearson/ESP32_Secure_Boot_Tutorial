@@ -98,7 +98,7 @@ Note:
 - When secure boot is enabled, the bootloader is not uploaded automatically when we run "idf.py build flash monitor". We have to upload it manually using the "write_flash" command.
 - The first time the device runs with secure boot enabled, the device will generate the digest for us. So we do not have to supply the digest this first time.
 
-## 7. ash app and others
+## 7. Flash app and others
 Finally, build and flash the rest of the application:
 
 ```

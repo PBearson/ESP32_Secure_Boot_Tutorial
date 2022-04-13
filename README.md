@@ -171,7 +171,7 @@ SHA-256 digest of private key /home/iot/Documents/ESP32_Secure_Boot_Tutorial/sec
 [32/97] Linking C static library esp-idf/esp_hw_support/libesp_hw_support.a
 [33/97] Linking C static library esp-idf/esp_system/libesp_system.a
 [34/97] Linking C static library esp-idf/efuse/libefuse.a
-[35/97] Generating signature_verification_key.bin
+[35/97] <b>Generating signature_verification_key.bin</b>
 espsecure.py v3.2-dev
 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/secure_boot_signing_key.pem public key extracted to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/esp-idf/bootloader_support/signature_verification_key.bin
 [36/97] Generating ../../signature_verification_key.bin.S
@@ -234,7 +234,7 @@ espsecure.py v3.2-dev
 [93/97] Linking C static library esp-idf/main/libmain.a
 [94/97] Linking C executable bootloader.elf
 ==============================================================================
-Bootloader built and secure digest generated.
+<b>Bootloader built and secure digest generated.</b>
 Secure boot enabled, so bootloader not flashed automatically.
 Burn secure boot key to efuse using:
         /home/iot/.espressif/python_env/idf4.4_py3.8_env/bin/python /home/iot/esp/esp-idf/components/esptool_py/esptool/espefuse.py burn_key secure_boot_v1 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/secure-bootloader-key-256.bin
@@ -293,7 +293,7 @@ idf.py build flash monitor
 You should see the bootloader and application proceed as normal. In fact, if you closely inspect the bootloader output, you will see that secure boot has been enabled.
 
 ### idf.py build output
-```
+<pre>
 iot@iot-VirtualBox:~/Documents/ESP32_Secure_Boot_Tutorial$ idf.py build flash monitor
 Executing action: all (aliases: build)
 Running ninja in directory /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build
@@ -301,14 +301,14 @@ Executing "ninja all"...
 [2/965] Performing build step for 'bootloader'
 [1/1] cd /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/esp-idf/esptool_py && /home/iot/.espressif/python_env/idf4.4_py3.8_env/bin/python /home/iot/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x10000 bootloader 0x1000 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/bootloader.bin
 Bootloader binary size 0x92e0 bytes. 0x5d20 bytes (39%) free.
-[514/963] Generating ../../signature_verification_key.bin
+[514/963] <b>Generating ../../signature_verification_key.bin<b>
 espsecure.py v3.2-dev
 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/secure_boot_signing_key.pem public key extracted to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/signature_verification_key.bin
 [961/963] Generating binary image from built executable
 esptool.py v3.2-dev
 Merged 25 ELF sections
 Generated /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/wifi_station-unsigned.bin
-[962/963] Generating signed binary image
+[962/963] <b>Generating signed binary image</b>
 espsecure.py v3.2-dev
 Signed 655280 bytes of data from /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/wifi_station-unsigned.bin with key /home/iot/Documents/ESP32_Secure_Boot_Tutorial/secure_boot_signing_key.pem
 Generated signed binary image /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/wifi_station.bin from /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/wifi_station-unsigned.bin
@@ -329,10 +329,10 @@ wifi_station.bin binary size 0x9fff4 bytes. Smallest app partition is 0x100000 b
 Bootloader binary size 0x92e0 bytes. 0x5d20 bytes (39%) free.
 [2/3] cd /home/iot/esp/esp-idf/components/esptool_py && /home/iot/.espressif/tools/cmak...ot_Tutorial/build" -P /home/iot/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
 esptool.py esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=no_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x20000 wifi_station.bin 0x10000 partition_table/partition-table.bin
-```
+</pre>
 
 ### First boot output
-```
+<pre>
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 0, SPIWP:0xee
 clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
@@ -367,20 +367,20 @@ I (163) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=6e1a0h (450976)
 I (327) esp_image: segment 4: paddr=000ae1c8 vaddr=40088984 size=0b960h ( 47456) load
 I (346) esp_image: segment 5: paddr=000b9b30 vaddr=50000000 size=00010h (    16) load
 I (347) esp_image: segment 6: paddr=000b9b48 vaddr=00000000 size=06438h ( 25656) 
-I (361) esp_image: Verifying image signature...
+I (361) <b>esp_image: Verifying image signature...<b>
 I (707) boot: Loaded app from partition at offset 0x20000
 I (707) boot_comm: chip revision: 1, min. application chip revision: 0
 I (709) esp_image: segment 0: paddr=00001020 vaddr=3fff0038 size=0275ch ( 10076) 
 I (720) esp_image: segment 1: paddr=00003784 vaddr=40078000 size=05c58h ( 23640) 
 I (731) esp_image: segment 2: paddr=000093e4 vaddr=40080400 size=00ed0h (  3792) 
-W (735) secure_boot_v1: Using pre-loaded secure boot key in EFUSE block 2
-I (741) secure_boot_v1: Generating secure boot digest...
+W (735) <b>secure_boot_v1: Using pre-loaded secure boot key in EFUSE block 2</b>
+I (741) <b>secure_boot_v1: Generating secure boot digest...</b>
 I (791) secure_boot_v1: Digest generation complete.
 I (791) boot: Checking secure boot...
 I (791) efuse: Batch mode of writing fields is enabled
 I (796) secure_boot_v1: blowing secure boot efuse...
 I (801) secure_boot: Read & write protecting new key...
-I (807) secure_boot: Disable JTAG...
+I (807) <b>secure_boot: Disable JTAG...</b>
 I (812) secure_boot: Disable ROM BASIC interpreter fallback...
 I (829) efuse: Batch mode. Prepared fields are committed
 I (829) secure_boot_v1: secure boot is now enabled for bootloader image
@@ -452,10 +452,10 @@ W (4381) wifi:<ba-add>idx:1 (ifx:0, 00:7f:28:d9:41:4a), tid:0, ssn:0, winSize:64
 I (5061) esp_netif_handlers: sta ip: 192.168.1.19, mask: 255.255.255.0, gw: 192.168.1.1
 I (5061) wifi station: got ip:192.168.1.19
 I (5061) wifi station: connected to ap SSID:XXX password:XXXXXX
-```
+</pre>
 
 ### Later boot output
-```
+<pre>
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 0, SPIWP:0xee
 clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
@@ -490,7 +490,7 @@ I (168) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=6e1a0h (450976)
 I (332) esp_image: segment 4: paddr=000ae1c8 vaddr=40088984 size=0b960h ( 47456) load
 I (351) esp_image: segment 5: paddr=000b9b30 vaddr=50000000 size=00010h (    16) load
 I (352) esp_image: segment 6: paddr=000b9b48 vaddr=00000000 size=06438h ( 25656) 
-I (366) esp_image: Verifying image signature...
+I (366) <b>esp_image: Verifying image signature...</b>
 I (712) boot: Loaded app from partition at offset 0x20000
 I (712) secure_boot_v1: bootloader secure boot is already enabled. No need to generate digest. continuing..
 I (717) boot: Checking secure boot...
@@ -563,7 +563,7 @@ W (4406) wifi:<ba-add>idx:1 (ifx:0, 00:7f:28:d9:41:4a), tid:0, ssn:0, winSize:64
 I (7406) esp_netif_handlers: sta ip: 192.168.1.19, mask: 255.255.255.0, gw: 192.168.1.1
 I (7406) wifi station: got ip:192.168.1.19
 I (7406) wifi station: connected to ap SSID:XXX password:XXXXXX
-```
+</pre>
 
 ## Verify Secure Boot is Working
 

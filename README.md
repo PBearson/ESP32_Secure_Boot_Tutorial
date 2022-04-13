@@ -82,7 +82,7 @@ The build system will
 - append the public key component of the signing key to the software bootloader, and 
 - calculate the secure bootloader key. 
 
-<pre><code>
+<pre>
 iot@iot-VirtualBox:~/Documents/ESP32_Secure_Boot_Tutorial$ idf.py bootloader
 Executing action: bootloader
 Running ninja in directory /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build

@@ -171,7 +171,7 @@ SHA-256 digest of private key /home/iot/Documents/ESP32_Secure_Boot_Tutorial/sec
 [32/97] Linking C static library esp-idf/esp_hw_support/libesp_hw_support.a
 [33/97] Linking C static library esp-idf/esp_system/libesp_system.a
 [34/97] Linking C static library esp-idf/efuse/libefuse.a
-[35/97] <p style="color:red">Generating signature_verification_key.bin</p>
+[35/97] <b>Generating signature_verification_key.bin</b>
 espsecure.py v3.2-dev
 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/secure_boot_signing_key.pem public key extracted to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/esp-idf/bootloader_support/signature_verification_key.bin
 [36/97] Generating ../../signature_verification_key.bin.S

@@ -54,11 +54,17 @@ Press _ESC_ again and change to the `Partition Table` menu. We need to change th
 After you are done, press _ESC_ again until you are prompted to save. Press _Y_ to save and exit.
 
 ## 3. Generate secure boot signing key
-Before we build the application, first we need to generate the secure boot signing key. The build system will append the public key component of the signing key to the software bootloader, and it will calculate the secure bootloader key. To generate the secure boot signing key, run this command:
-
+Before we build the application, first we need to generate the secure boot signing key. 
+To generate the secure boot signing key, run this command:
 ```
 espsecure.py generate_signing_key secure_boot_signing_key.pem
 ```
+
+The build system will 
+- append the public key component of the signing key to the software bootloader, and 
+- calculate the secure bootloader key. 
+
+
 
 **CAUTION: The secure boot signing key is needed every time you want to upload a new firmware. Make sure not to lose it.**
 

@@ -29,6 +29,7 @@ We are going to enable secure boot in Reflashable Mode.
 Download this repository into your VM:
 
 ```
+cd ~/Documents
 git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
 ```
 

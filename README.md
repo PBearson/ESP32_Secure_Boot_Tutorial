@@ -4,7 +4,8 @@ This project demonstrates how to enable secure boot (Reflashable Mode) on the ES
 
 Our device uses [Secure Boot V1](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v1.html) (version 1), and cannot use [Secure Boot V2](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v2.html).
 
-NOTE: Once secure boot is enabled, it cannot be disabled like the reflashable mode of flash encryption.
+**NOTE**: Once secure boot is enabled, it can NOT be disabled like the development mode of flash encryption.
+
 ## Introduction to Secure Boot
 
 Secure boot is a security mechanism supported by the ESP32 that verifies the integrity of the application (and the bootloader) at boot-time. It is important to understand how the secure boot procedure works, which is explained below:

@@ -64,8 +64,7 @@ Press _ESC_ again and change to the `Partition Table` menu. We need to change th
 After you are done, press _ESC_ again until you are prompted to save. Press _Y_ to save and exit.
 
 ## 3. Generate secure boot signing key
-Before we build the application, first we need to generate the secure boot signing key. 
-To generate the secure boot signing key, run this command:
+Before we build the application, first we need to generate the secure boot signing key by running this command:
 ```
 espsecure.py generate_signing_key secure_boot_signing_key.pem
 ```

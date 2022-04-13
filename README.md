@@ -24,7 +24,7 @@ The ESP32 supports two kinds of secure boot modes: One-time Flash, and Reflashab
 
 We are going to enable secure boot in Reflashable Mode. 
 
-## Download this project
+## 1. Download this project
 
 Download this repository into your VM:
 
@@ -39,7 +39,7 @@ If you have previously enabled flash encryption (Development Mode) on this ESP32
 * Replace `idf.py flash` with `idf.py encrypted-flash`
 * Any command starting with `esptool.py write_flash` must contain the `--encrypt` argument; for example: `esptool.py write_flash --encrypt 0x1000 build/bootloader/bootloader.bin`
 
-## Configure the app
+## 2. Configure the app
 
 ### WiFi
 
@@ -60,7 +60,7 @@ Press _ESC_ again and change to the `Partition Table` menu. We need to change th
 
 After you are done, press _ESC_ again until you are prompted to save. Press _Y_ to save and exit.
 
-## Generate the secure boot signing key
+## 3. Generate secure boot signing key
 Before we build the application, first we need to generate the secure boot signing key. The build system will append the public key component of the signing key to the software bootloader, and it will calculate the secure bootloader key. To generate the secure boot signing key, run this command:
 
 ```
@@ -69,7 +69,7 @@ espsecure.py generate_signing_key secure_boot_signing_key.pem
 
 **CAUTION: The secure boot signing key is needed every time you want to upload a new firmware. Make sure not to lose it.**
 
-## Build the bootloader
+## 4. Build bootloader
 
 Now build the bootloader:
 
@@ -77,7 +77,7 @@ Now build the bootloader:
 idf.py bootloader
 ```
 
-## Burn secure bootloader key into eFuse
+## 5. Burn secure bootloader key into eFuse
 
 The secure bootloader key is also generated and stored in the following path: _build/bootloader/secure-bootloader-key-256.bin_. Now we need to burn this key into the BLOCK2 eFuse:
 
@@ -92,7 +92,7 @@ Picture below shows the eFuse blocks.
 
 **NOTE: If using the Hiletgo ESP-WROOM-32 development board, you may need to hold down the IO0 button on the ESP32 when the build system tries to connect to the ESP32's serial port. If you do not hold down the IO0 button during this step, the build system may fail to detect the serial port.**
 
-## Upload the bootloader
+## 6. Upload the bootloader
 Now upload the bootloader to the ESP32:
 
 ```
@@ -102,7 +102,7 @@ Note:
 - When secure boot is enabled, the bootloader is not uploaded automatically when we run "idf.py build flash monitor". We have to upload it manually using the "write_flash" command.
 - The first time the device runs with secure boot enabled, the device will generate the digest for us. So we do not have to supply the digest this first time.
 
-## Flash the app and others
+## 7. ash app and others
 Finally, build and flash the rest of the application:
 
 ```

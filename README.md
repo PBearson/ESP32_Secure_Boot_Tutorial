@@ -135,7 +135,7 @@ Signed 3072 bytes of data from /home/iot/Documents/ESP32_Secure_Boot_Tutorial/bu
 -- Build files have been written to: /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader
 [4/6] Performing build step for 'bootloader'
 [1/97] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32/esp_efuse_fields.c.obj
-[2/97] Generating secure-bootloader-key-256.bin
+[2/97] <b>Generating secure-bootloader-key-256.bin</b>
 espsecure.py v3.2-dev
 SHA-256 digest of private key /home/iot/Documents/ESP32_Secure_Boot_Tutorial/secure_boot_signing_key.pem written to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/secure-bootloader-key-256.bin
 [3/97] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32/esp_efuse_table.c.obj

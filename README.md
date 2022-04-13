@@ -60,12 +60,6 @@ To generate the secure boot signing key, run this command:
 espsecure.py generate_signing_key secure_boot_signing_key.pem
 ```
 
-The build system will 
-- append the public key component of the signing key to the software bootloader, and 
-- calculate the secure bootloader key. 
-
-
-
 **CAUTION: The secure boot signing key is needed every time you want to upload a new firmware. Make sure not to lose it.**
 
 ## 4. Build bootloader
@@ -75,6 +69,9 @@ Now build the bootloader:
 ```
 idf.py bootloader
 ```
+The build system will 
+- append the public key component of the signing key to the software bootloader, and 
+- calculate the secure bootloader key. 
 
 ## 5. Burn secure bootloader key into eFuse
 

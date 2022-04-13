@@ -568,6 +568,7 @@ I (7406) wifi station: connected to ap SSID:XXX password:XXXXXX
 
 Now we will prove that secure boot is working as intended. We are going to modify the application and show that the secure boot mechanism prevents the modified application from running. 
 
+### Change application code
 Open the application code (_main/station_example_main.c_) in an editor such as VSCode. Change the code in any way you like. In my case, I have changed the TAG variable from "wifi station" to "wifi station BRYAN":
 
 ![image](https://user-images.githubusercontent.com/11084018/159783086-c50e6ea0-d61a-4153-bfcf-aa9550027901.png)
@@ -605,6 +606,8 @@ idf.py monitor
 You should see that the ROM bootloader successfully loads the software bootloader, but the software bootloader fails to load the application because it cannot verify the application's signature:
 
 ![image](https://user-images.githubusercontent.com/11084018/159786794-e3abb679-7d38-422c-864f-94f63ac9b562.png)
+
+### Upload bootloader
 
 Now upload the bootloader image, and observe how the ROM bootloader now fails to load the software bootloader:
 

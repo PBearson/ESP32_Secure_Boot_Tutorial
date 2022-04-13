@@ -300,7 +300,7 @@ Executing "ninja all"...
 [2/965] Performing build step for 'bootloader'
 [1/1] cd /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/esp-idf/esptool_py && /home/iot/.espressif/python_env/idf4.4_py3.8_env/bin/python /home/iot/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x10000 bootloader 0x1000 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/bootloader/bootloader.bin
 Bootloader binary size 0x92e0 bytes. 0x5d20 bytes (39%) free.
-[514/963] <b>Generating ../../signature_verification_key.bin<b>
+[514/963] <b>Generating ../../signature_verification_key.bin</b>
 espsecure.py v3.2-dev
 /home/iot/Documents/ESP32_Secure_Boot_Tutorial/secure_boot_signing_key.pem public key extracted to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/signature_verification_key.bin
 [961/963] Generating binary image from built executable
@@ -366,7 +366,7 @@ I (163) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=6e1a0h (450976)
 I (327) esp_image: segment 4: paddr=000ae1c8 vaddr=40088984 size=0b960h ( 47456) load
 I (346) esp_image: segment 5: paddr=000b9b30 vaddr=50000000 size=00010h (    16) load
 I (347) esp_image: segment 6: paddr=000b9b48 vaddr=00000000 size=06438h ( 25656) 
-I (361) <b>esp_image: Verifying image signature...<b>
+I (361) <b>esp_image: Verifying image signature...</b>
 I (707) boot: Loaded app from partition at offset 0x20000
 I (707) boot_comm: chip revision: 1, min. application chip revision: 0
 I (709) esp_image: segment 0: paddr=00001020 vaddr=3fff0038 size=0275ch ( 10076) 

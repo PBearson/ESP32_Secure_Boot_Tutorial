@@ -4,7 +4,7 @@ This project demonstrates how to enable secure boot (Reflashable Mode) on the ES
 
 Our device uses [Secure Boot V1](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v1.html#secure-boot-resume-normal-flashing) (version 1), and cannot use [Secure Boot V2](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v2.html).
 
-![image](https://user-images.githubusercontent.com/69218457/163095322-716ef9cd-09e8-415b-acdb-0c0ecc5b4ff6.png)
+<img src="imgs/ESP32SecureBoot.PNG" width=512>
 
 ## Introduction to Secure Boot
 

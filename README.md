@@ -86,10 +86,6 @@ espefuse.py burn_key secure_boot_v1 build/bootloader/secure-bootloader-key-256.b
 ```
 Follow the instructions and type `BURN` to finish setting the eFuse.
 
-Picture below shows the eFuse blocks.
-![image](https://user-images.githubusercontent.com/69218457/163093523-863de427-b9a6-45ce-95b1-5e8e472e4db3.png)
-
-
 **NOTE: If using the Hiletgo ESP-WROOM-32 development board, you may need to hold down the IO0 button on the ESP32 when the build system tries to connect to the ESP32's serial port. If you do not hold down the IO0 button during this step, the build system may fail to detect the serial port.**
 
 ## 6. Upload the bootloader

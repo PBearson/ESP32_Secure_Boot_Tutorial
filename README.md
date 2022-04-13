@@ -35,6 +35,10 @@ git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
 
 ## 2. Configure the app
 
+Load the project into VS Code via *File* -> *Open Folder ...*
+
+Within VS Code, open a *Terminal* from its menu
+
 ### WiFi
 
 Open a terminal, and navigate to the root directory of this project. Open the project configuration menu:

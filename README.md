@@ -27,6 +27,10 @@ We are going to enable secure boot in Reflashable Mode.
 
 ## 1. Download this project
 
+Our new Ubuntu VM is intalled with the ESP-IDF extension. If you do not want to install it yourself, please download it at the specified website.
+
+Otherwise, please follow [this tutorial](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md) to install it within VS Code.
+
 Download this repository into your VM:
 
 ```

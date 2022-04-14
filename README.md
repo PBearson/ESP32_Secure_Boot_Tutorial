@@ -25,12 +25,12 @@ The ESP32 supports two kinds of secure boot modes: One-time Flash, and Reflashab
 
 We are going to enable secure boot in Reflashable Mode. 
 
-## 1. Download this project
-
+## 0. Prerequisite: Install the ESP-IDF extension 
 Our new Ubuntu VM is intalled with the ESP-IDF extension, which is our working environment. If you do not want to install it yourself, please download it at the specified website.
 
 Otherwise, please follow [this tutorial](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md) to install it within VS Code.
 
+## 1. Download this project
 Download this repository into your VM:
 
 ```

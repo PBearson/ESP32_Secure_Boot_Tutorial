@@ -38,7 +38,7 @@ git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
 
 Load the project into VS Code via *File* -> *Open Folder ...*
 
-Within VS Code, open a *Terminal* from its menu
+Within VS Code, open a *Terminal* from its menu.
 
 Within the terminal, use the following command to set up the environment variables
 ```

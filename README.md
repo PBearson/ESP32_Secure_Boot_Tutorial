@@ -89,7 +89,7 @@ The build system will
 - append the public key component of the signing key to the software bootloader, and 
 - calculate the secure bootloader key. 
 
-[View output from idf.py bootloader](idf-bootloader.MD)
+[View output from idf.py bootloader](idf-bootloader.md)
       
 ## 5. Burn secure bootloader key into eFuse
 

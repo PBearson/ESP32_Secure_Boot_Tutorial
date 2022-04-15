@@ -121,13 +121,10 @@ idf.py build flash monitor
 
 You should see the bootloader and application proceed as normal. In fact, if you closely inspect the bootloader output, you will see that secure boot has been enabled.
 
-### idf.py build output
 [View idf.py build output](idf-build.md)
 
-### First boot output
 [View first boot output](First-boot-output.md)
 
-### Later boot output
 [View later boot output](Later-boot-output.md)
 
 ## Verify Secure Boot is Working

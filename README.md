@@ -91,10 +91,12 @@ The build system will
 
 <details>
   <summary>
+    <textarea wrap="hard">
 iot@iot-VirtualBox:~/Documents/ESP32_Secure_Boot_Tutorial$ idf.py bootloader
 Executing action: bootloader
 Running ninja in directory /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build
 Executing "ninja bootloader"...
+      </textarea>
    </summary>
 [0/1] Re-running CMake...
 -- Building ESP-IDF components for target esp32

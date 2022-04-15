@@ -89,14 +89,14 @@ The build system will
 - append the public key component of the signing key to the software bootloader, and 
 - calculate the secure bootloader key. 
 
+    <textarea wrap="hard">
 <details>
   <summary>
-    <textarea wrap="hard">
+
 iot@iot-VirtualBox:~/Documents/ESP32_Secure_Boot_Tutorial$ idf.py bootloader
 Executing action: bootloader
 Running ninja in directory /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build
 Executing "ninja bootloader"...
-      </textarea>
    </summary>
 [0/1] Re-running CMake...
 -- Building ESP-IDF components for target esp32
@@ -272,7 +272,8 @@ digest+image written to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/boo
 Bootloader build complete.
 
 </details>
-
+</textarea>
+      
 ## 5. Burn secure bootloader key into eFuse
 
 The secure bootloader key is stored in the following path: _build/bootloader/secure-bootloader-key-256.bin_. Now we need to burn this key into the BLOCK2 eFuse:

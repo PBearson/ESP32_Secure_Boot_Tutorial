@@ -1,4 +1,4 @@
-# ESP32 Secure Boot Tutorial
+# ESP32 Secure Boot
 
 This project demonstrates how to enable secure boot (Reflashable Mode) on the ESP32. We will show the procedure for enabling secure boot for the current application, and we will verify that secure boot is enabled. Finally, we will show how the user can upload a new firmware as long as they have the correct signing key, and we will show how the user can update the bootloader due to the Reflashable Mode setting.
 

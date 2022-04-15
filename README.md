@@ -6,7 +6,7 @@ Our device uses [Secure Boot V1](https://docs.espressif.com/projects/esp-idf/en/
 
 **NOTE**
 - The tutorial assumes that there is no flash encryption enabled on ESP32.
-- Once secure boot is enabled, it can NOT be disabled like the development mode of flash encryption.
+- Once secure boot is enabled, it is enabled forever and can NOT be disabled like the development mode of flash encryption. 
 
 ## Introduction to Secure Boot
 

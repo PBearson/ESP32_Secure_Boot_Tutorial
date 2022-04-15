@@ -4,7 +4,9 @@ This project demonstrates how to enable secure boot (Reflashable Mode) on the ES
 
 Our device uses [Secure Boot V1](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v1.html) (version 1), and cannot use [Secure Boot V2](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/security/secure-boot-v2.html).
 
-**NOTE**: Once secure boot is enabled, it can NOT be disabled like the development mode of flash encryption.
+**NOTE**
+- The tutorial assumes that there is no flash encryption enabled on ESP32.
+- Once secure boot is enabled, it can NOT be disabled like the development mode of flash encryption.
 
 ## Introduction to Secure Boot
 

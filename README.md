@@ -89,15 +89,11 @@ The build system will
 - append the public key component of the signing key to the software bootloader, and 
 - calculate the secure bootloader key. 
 
-    <textarea wrap="hard">
-<details>
-  <summary>
-
+<pre>
 iot@iot-VirtualBox:~/Documents/ESP32_Secure_Boot_Tutorial$ idf.py bootloader
 Executing action: bootloader
 Running ninja in directory /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build
 Executing "ninja bootloader"...
-   </summary>
 [0/1] Re-running CMake...
 -- Building ESP-IDF components for target esp32
 -- Project sdkconfig file /home/iot/Documents/ESP32_Secure_Boot_Tutorial/sdkconfig
@@ -270,9 +266,7 @@ digest+image written to /home/iot/Documents/ESP32_Secure_Boot_Tutorial/build/boo
 [5/5] Completed 'bootloader'
 
 Bootloader build complete.
-
-</details>
-</textarea>
+</pre>
       
 ## 5. Burn secure bootloader key into eFuse
 

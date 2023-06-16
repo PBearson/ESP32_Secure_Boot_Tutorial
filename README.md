@@ -184,6 +184,11 @@ Now upload the bootloader image, and observe how the ROM bootloader now fails to
 esptool.py write_flash 0x1000 build/bootloader/bootloader.bin
 ```
 
+**Note**: You may need to add the flab *--force* to the command as shown below
+```
+esptool.py write_flash --force 0x1000 build/bootloader/bootloader.bin
+```
+
 You should see output similar to the following:
 
 ![image](https://user-images.githubusercontent.com/11084018/160002426-02cae2dd-4089-4542-8447-0a4438fbb758.png)
@@ -204,6 +209,11 @@ The bootloader is prefixed with the SHA-512 digest that the ROM uses to verify t
 
 ```
 esptool.py write_flash 0x0 build/bootloader/bootloader-reflash-digest.bin
+```
+
+**Note**: You may need to add the flab *--force* to the command as shown below
+```
+esptool.py write_flash --force 0x0 build/bootloader/bootloader-reflash-digest.bin
 ```
 The write_flash command is writing both the bootloader and the bootloader digest to the flash (they are part of the same binary).
 

@@ -25,31 +25,37 @@ The ESP32 supports two kinds of secure boot modes: One-time Flash, and Reflashab
 * In **One-time Flash Mode**, the secure bootloader key is generated internally by the chip and stored in the eFuse, where it cannot be accessed by software. Since the key is inaccessible to the user, the software bootloader cannot be changed after secure boot is enabled.
 * In **Reflashable Mode**, the build system generates the secure bootloader key using the SHA-256 digest of the secure boot signing key. This secure bootloader key is then stored in the eFuse. Assuming the user can access the secure boot signing key, the secure bootloader key can always be re-generated, and the software bootloader can be changed after secure boot is enabled.
 
-We are going to enable secure boot in Reflashable Mode. 
+We are going to enable secure boot in *Reflashable* Mode. 
 
 ## 0. Prerequisite: Install the ESP-IDF extension 
-Our new Ubuntu VM is intalled with the ESP-IDF extension, which is our working environment. If you do not want to install it yourself, please download it at the specified website.
+Our new Ubuntu VM installed with ESP-IDF and Visual Studio Code with the ESP-IDF extension. If you do not want to install it yourself please download the VM from the specified website. 
 
 Otherwise, please follow [this tutorial](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md) to install it within VS Code.
 
 ## 1. Download this project
 Download this repository into your VM:
 
-```
-cd ~/Documents
+```sh
 git clone https://github.com/PBearson/ESP32_Secure_Boot_Tutorial.git
 ```
+**Note**: By default, this project is already located in the ``` ~/esp/IoT-Examples/ ``` directory of the Ubuntu VM.
 
 ## 2. Configure the app
 
 Load the project into VS Code via *File* -> *Open Folder ...*
 
-Within VS Code, open a *Terminal* from its menu.
 
-Within the terminal, use the following command to set up the environment variables
-```
+We will start the ESP-IDF terminal within VS Code (not the Linux terminal) using the button at the bottom of VS Code. 
+
+<img src="imgs/VSCode-ESP-Terminal.png">
+
+Otherwise Within a Linux terminal, we will need to set up the environment variables so that we can use all the tools without inputting the full path names. This can be done with the ``` export.sh ``` script as shown below.
+```sh
 . $HOME/esp/esp-idf/export.sh
 ```
+
+<img src="imgs/VSCodeTerminal.png">
+
 
 ### WiFi
 
